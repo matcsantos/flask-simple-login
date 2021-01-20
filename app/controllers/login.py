@@ -49,6 +49,7 @@ class LoginController:
             
             username = request.form.get('username')
             password = request.form.get('password')
+            remember = request.form.get('remember')
 
             if not len(username) or not len(password):
                 context = dict(
@@ -59,9 +60,8 @@ class LoginController:
             if User.validate_login(username, password):
                 session['user'] = username
 
-                if request.form.get('remember') == 'on':
+                if remember:
                     session.permanent = True
-                
                 else:
                     session.permanent = False
 
