@@ -1,18 +1,33 @@
+{% extends 'base.html' %}
 
-<h2>Login</h2>
+{% block title %}Sign in{% endblock %}
 
-{% if error %}
-<p>error: {{ error }}</p>
-{% endif %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
 
-<form action="/login" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    
-    <div>
-        <input type="checkbox" name="remember" id="remember">
-        <label for="remeber">Remember me</label>
+{% block body %}
+<main>
+    <div class="content-container">
+        <h2>Login</h2>
+        
+        {% if error %}
+        <p class="form-error">{{ error }}</p>
+        {% endif %}
+        
+        <form action="/login" method="post" autocomplete="off">
+            <input class="text-input" type="text" name="username" placeholder="Username">
+            <input class="text-input" type="password" name="password" placeholder="Password">
+            
+            <div>
+                <input type="checkbox" name="remember" id="remember" checked>
+                <label for="remeber">Remember me</label>
+            </div>
+            
+            <input class="button" type="submit" value="Sign in">
+        </form>
+
+        <p>Need an account? <a class="hyperlink" href="{{ url_for('login.register') }}">Sign up</a>.</p>
     </div>
-    
-    <input type="submit" value="Sign in">
-</form>
+</main>
+{% endblock %}
