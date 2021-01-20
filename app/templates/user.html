@@ -1,0 +1,10 @@
+<p>Logged in as</p>
+<h2>{{ user }}</h2>
+
+{% if permanent %}
+<p>Permanent session</p>
+{% else %}
+<p>Temporary session</p>
+{% endif %}
+
+<a href="{{ url_for('login.logout') }}">Logout</a>
