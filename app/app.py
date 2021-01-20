@@ -7,6 +7,7 @@ import os
 def create_app():
     
     app = Flask(__name__)
+    app.secret_key = 'development'
     
     for blueprint in router.blueprints:
         app.register_blueprint(blueprint)

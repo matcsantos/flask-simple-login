@@ -32,8 +32,47 @@ class LoginController:
                 return render_template('register.html', **context)
             
             else:
-                return redirect(url_for('home.index'))
+                return redirect(url_for('login.login'))
         
         #GET
         else:
             return render_template('register.html')
+
+
+    def login():
+        
+        if session.get('user'):
+            return redirect(url_for('home.index'))
+        
+        #POST
+        if request.method == 'POST':
+            
+            username = request.form.get('username')
+            password = request.form.get('password')
+
+            if not len(username) or not len(password):
+                context = dict(
+                    error = 'All fields must be filled.'
+                )
+                return render_template('login.html', **context)
+            
+            if User.validate_login(username, password):
+                session['user'] = username
+
+                if request.form.get('remember') == 'on':
+                    session.permanent = True
+                
+                else:
+                    session.permanent = False
+
+                return redirect(url_for('home.index'))
+            
+            else:
+                context = dict(
+                    error = 'Invalid username or password.'
+                )
+                return render_template('login.html', **context)
+        
+        #GET
+        else:
+            return render_template('login.html')
