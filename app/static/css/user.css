@@ -1,0 +1,14 @@
+@import url('base.css');
+
+main *{
+    margin-bottom: 10px;
+}
+
+h2{
+    margin-bottom: 0px;
+}
+
+img{
+    border-radius: 50%;
+    width: 35%;
+}

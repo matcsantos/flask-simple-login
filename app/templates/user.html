@@ -1,10 +1,25 @@
-<p>Logged in as</p>
-<h2>{{ user }}</h2>
+{% extends 'base.html' %}
 
-{% if permanent %}
-<p>Permanent session</p>
-{% else %}
-<p>Temporary session</p>
-{% endif %}
+{% block title %}{{ user }}{% endblock %}
 
-<a href="{{ url_for('login.logout') }}">Logout</a>
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/user.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="content-container">
+        <p>Logged in as</p>
+        <img src="{{ url_for('static', filename='images/user.jpg') }}" alt="{{ user }} profile picture">
+        <h2>{{ user }}</h2>
+        
+        {% if permanent %}
+        <p>Permanent session</p>
+        {% else %}
+        <p>Temporary session</p>
+        {% endif %}
+        
+        <a class="button" href="{{ url_for('login.logout') }}">Logout</a>
+    </div>
+</main>
+{% endblock %}
