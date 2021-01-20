@@ -76,3 +76,11 @@ class LoginController:
         #GET
         else:
             return render_template('login.html')
+
+
+    def logout():
+        
+        if session.get('user'):
+            session.clear()
+        
+        return redirect(url_for('home.index'))
