@@ -1,1 +1,30 @@
-<h2>Index</h2>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="content-container">
+        
+        <object id="python-icon" data="{{ url_for('static', filename='svg/python.svg') }}"></object>
+        <h2>Example</h2>
+        
+        <p>Login or register a new account</p>
+        <a class="button" href="{{ url_for('login.login') }}">Sign in</a>
+        <a class="button" href="{{ url_for('login.register') }}">Sign up</a>
+        
+        <div id="credits">
+            <p>Coded by Matheus Carvalho 👨🏻‍💻</p>
+            <div>
+                <object id="github-icon" data="{{ url_for('static', filename='svg/github.svg') }}"></object>
+                <a class="hyperlink" href="https://github.com/matcsantos">matcsantos</a>
+            </div>
+        </div>
+
+    </div>
+</main>
+{% endblock %}
