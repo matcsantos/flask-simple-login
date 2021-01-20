@@ -32,7 +32,7 @@ class LoginController:
                 return render_template('register.html', **context)
             
             else:
-                return redirect(url_for('login.login'))
+                return redirect(url_for('login.login', registered=True, username=username))
         
         #GET
         else:
@@ -75,7 +75,11 @@ class LoginController:
         
         #GET
         else:
-            return render_template('login.html')
+            context = dict(
+                registered = request.args.get('registered'),
+                username = request.args.get('username'),
+            )
+            return render_template('login.html', **context)
 
 
     def logout():

@@ -12,6 +12,7 @@
     --primary-text:     rgb(63, 72, 80);
     --secondary-text:   rgb(155, 165, 173);
     --form-error:       rgb(255, 50, 50);
+    --form-success:     rgb(0, 201, 17);
 }
 
 main{
@@ -103,4 +104,8 @@ label{
 
 .form-error{
     color: var(--form-error);
+}
+
+.form-success{
+    color: var(--form-success);
 }

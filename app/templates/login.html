@@ -10,13 +10,17 @@
 <main>
     <div class="content-container">
         <h2>Login</h2>
+
+        {% if registered %}
+        <p class="form-success">Account created, you can sign in now.</p>
+        {% endif %}
         
         {% if error %}
         <p class="form-error">{{ error }}</p>
         {% endif %}
         
         <form action="/login" method="post" autocomplete="off">
-            <input class="text-input" type="text" name="username" placeholder="Username">
+            <input class="text-input" type="text" name="username" placeholder="Username" value="{{ username if username else '' }}">
             <input class="text-input" type="password" name="password" placeholder="Password">
             
             <div>
