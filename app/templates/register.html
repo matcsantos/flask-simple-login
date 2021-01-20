@@ -1,12 +1,27 @@
+{% extends 'base.html' %}
 
-<h2>Register</h2>
+{% block title %}Sign up{% endblock %}
 
-{% if error %}
-<p>error: {{ error }}</p>
-{% endif %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
 
-<form action="/register" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Sign up">
-</form>
+{% block body %}
+<main>
+    <div class="content-container">
+        <h2>Register</h2>
+        
+        {% if error %}
+        <p class="form-error">{{ error }}</p>
+        {% endif %}
+        
+        <form action="/register" method="post">
+            <input class="text-input" type="text" name="username" placeholder="Username">
+            <input class="text-input" type="password" name="password" placeholder="Password">
+            <input class="button" type="submit" value="Sign up">
+        </form>
+
+        <p>Already have an account? <a class="hyperlink" href="{{ url_for('login.login') }}">Sign in</a></p>
+    </div>
+</main>
+{% endblock %}
