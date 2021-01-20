@@ -33,7 +33,7 @@ class User:
     def validate_password(self):
         
         if not len(self.password) >= PASSWORD_MIN_LEN:
-            raise ValidationError('Password must have at least {PASSWORD_MIN_LEN} characters.')
+            raise ValidationError(f'Password must have at least {PASSWORD_MIN_LEN} characters.')
         
         for char in self.password:
             if not char in string.printable:
