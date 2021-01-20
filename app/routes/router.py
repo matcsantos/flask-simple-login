@@ -1,4 +1,4 @@
 
-from routes import home
+from routes import home, login
 
-blueprints = (home.blueprint,)
+blueprints = (home.blueprint, login.blueprint)
