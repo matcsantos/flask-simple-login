@@ -37,6 +37,19 @@ main p{
     color: var(--secondary-text);
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+label{
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
 .content-container{
     display: flex;
     flex-direction: column;
