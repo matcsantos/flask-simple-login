@@ -33,7 +33,7 @@ My objective with this project was to create a login system without using extens
 <ul>
   <li>
     <h3>Using Docker</h3>
-    <p>Create an image using the .Dockerfile in the root directory of this repository</p>
+    <p>Create an image using the Dockerfile in the root directory of this repository</p>
     <code>docker build -t flask-simple-login .</code>
     <p>Run the image you just created in a new container</p>
     <code>docker run -d -p 5000:5000 flask-simple-login</code>
